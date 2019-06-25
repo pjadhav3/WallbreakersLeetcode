@@ -1,0 +1,16 @@
+class Solution {
+    public int[][] transpose(int[][] A) {
+        //0 ms	38.7 MB
+        int transCols = A.length; // no. of rows(A.length) of original matrix will become columns of transpose
+        int transRows = A[0].length; // no. of cols(A[0].length) of original matrix will become rows of transpose
+        
+        int [][]trans= new int[transRows][transCols]; 
+        
+        for(int i=0;i<transRows;i++){
+            for(int j=0;j<transCols;j++){
+                trans[i][j]=A[j][i]; 
+            }
+        }
+        return trans;
+    }
+}

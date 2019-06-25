@@ -1,0 +1,48 @@
+class Solution {
+    public int[][] flipAndInvertImage(int[][] A) {
+        //1 ms	36.4 MB
+        int rows = A.length;
+        int cols = A[0].length;
+        /*//horizontal flip
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols/2;j++){
+                //swap A[i][j] with A[i][cols-1-i]
+                int temp =A[i][j];
+                A[i][j]=A[i][cols-1-j];
+                A[i][cols-1-j]=temp;
+            }
+        }
+        
+        
+        //invertImage
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols;j++){
+                if(A[i][j]==0)
+                    A[i][j]=1;
+                else
+                    A[i][j]=0;
+            }
+        }
+        
+        return A;*/
+        
+        //1 ms	36.3 MB : created new matrix flip
+        int [][]flip = new int[rows][cols];
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols;j++){
+                flip[i][j]=A[i][cols-1-j];
+            }
+        }
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols;j++){
+                if(flip[i][j]==0)
+                    flip[i][j]=1;
+                else
+                    flip[i][j]=0;
+            }
+        }
+        
+        return flip;
+        
+    }
+}

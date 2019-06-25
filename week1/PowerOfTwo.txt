@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+       if(n<=0) return false;
+       // if(n!=1 && n%2!=0) return false;
+        while(n>0){
+            if(n%2!=0 && n!=1){
+                return false;
+            }
+           // n=n>>1; left shift by 1 is equivalent to divide by 2;
+            n=n/2;
+        }
+        return true;
+        /* bit manipulation solution
+        if(n>0){
+        //if(Integer.bitCount(n)==1) return true;
+          if((n & n-1)==0) return true;  
+        }
+        return false;*/
+    }
+}
