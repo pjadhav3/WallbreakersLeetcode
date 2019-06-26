@@ -1,0 +1,28 @@
+class Solution {
+    public int hammingDistance(int x, int y) {
+        int n = Math.max((int)(Math.log(x)/Math.log(2))+1,(int)(Math.log(y)/Math.log(2))+1);
+        //System.out.println(5&4);
+        
+        int num = x^y;
+        //System.out.println(Integer.toBinaryString(num));
+        int count=0;
+        
+        for(int i=0;i<n;i++){
+            if(isBitSet(num,i)){
+                //System.out.println(i);
+                count++;
+            }
+        }
+        
+        return count;
+    }
+    
+    public boolean isBitSet(int x ,int position){
+        //System.out.println("IsBitSet()"+position);
+        int mask = 1 << position;
+        //System.out.println((mask));
+        if((x&mask) !=0) return true;
+        return false;
+    }
+    
+}
